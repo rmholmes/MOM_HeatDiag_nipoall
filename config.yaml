@@ -1,0 +1,22 @@
+# PBS flags
+queue: normal
+project: e14
+walltime: 5:00:00
+ncpus: 960
+mem: 1600GB
+jobname: NYFnew
+
+collate_walltime: 3:00:00
+collate_mem: 8GB
+
+# Model config
+model: mom
+shortpath: /short/v45
+exe: mom51_sis_xgrid
+input:
+    - core2nyf2iaf_fut
+    - gfdl_nyf_1080_clean
+collate: true
+
+# Misc
+stacksize: unlimited
