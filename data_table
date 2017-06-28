@@ -1,19 +1,19 @@
-"ATM" , "p_surf"        , "SLP"         , "./INPUT/concat_slp_F.nc"                     , "bicubic" ,  1.0
-"ATM" , "p_bot"         , "SLP"         , "./INPUT/concat_slp_F.nc"                     , "bicubic" ,  1.0
-"ATM" , "t_bot"         , "T_10_MOD"    , "./INPUT/concat_ta_F.nc"	, "bicubic" ,  1.0
-"ATM" , "sphum_bot"     , "Q_10_MOD"    , "./INPUT/concat_hus_F.nc"	, "bicubic" ,  1.0
-"ATM" , "u_bot"         , "U_10_MOD"    , "./INPUT/concat_uas_F.nc"	, "bicubic" ,  1.0
-"ATM" , "v_bot"         , "V_10_MOD"    , "./INPUT/concat_vas_F.nc"	, "bicubic" ,  1.0
+"ATM" , "p_surf"        , "SLP"         , "./INPUT/concat_slp_N.nc"                     , "bicubic" ,  1.0
+"ATM" , "p_bot"         , "SLP"         , "./INPUT/concat_slp_N.nc"                     , "bicubic" ,  1.0
+"ATM" , "t_bot"         , "T_10_MOD"    , "./INPUT/concat_ta_N.nc"	, "bicubic" ,  1.0
+"ATM" , "sphum_bot"     , "Q_10_MOD"    , "./INPUT/concat_hus_N.nc"	, "bicubic" ,  1.0
+"ATM" , "u_bot"         , "U_10_MOD"    , "./INPUT/concat_uas_N.nc"	, "bicubic" ,  1.0
+"ATM" , "v_bot"         , "V_10_MOD"    , "./INPUT/concat_vas_N.nc"	, "bicubic" ,  1.0
 "ATM" , "z_bot"         , ""            , ""                             , "bicubic" , 10.0
 "ATM" , "gust"          , ""            , ""                             , "bicubic" ,  0.0
-"ICE" , "lw_flux_dn"    , "LWDN_MOD"    , "./INPUT/concat_rad_F.nc"     , "bicubic" ,  1.0
-#"ICE" , "sw_flux_dn"    , "SWDN_MOD"    ,"./INPUT/concat_rad_F.nc"     , "bicubic" ,  1.0
-"ICE" , "sw_flux_vis_dir_dn", "SWDN_MOD", "./INPUT/concat_rad_F.nc"     , "bicubic" , 0.285
-"ICE" , "sw_flux_vis_dif_dn", "SWDN_MOD", "./INPUT/concat_rad_F.nc"     , "bicubic" , 0.285
-"ICE" , "sw_flux_nir_dir_dn", "SWDN_MOD", "./INPUT/concat_rad_F.nc"     , "bicubic" , 0.215
-"ICE" , "sw_flux_nir_dif_dn", "SWDN_MOD", "./INPUT/concat_rad_F.nc"     , "bicubic" , 0.215
-"ICE" , "lprec"         , "RAIN"        , "./INPUT/concat_precip_F.nc"  , "bicubic" ,  1.0
-"ICE" , "fprec"         , "SNOW"        , "./INPUT/concat_precip_F.nc"  , "bicubic" ,  1.0
+"ICE" , "lw_flux_dn"    , "LWDN_MOD"    , "./INPUT/concat_rad_N.nc"     , "bicubic" ,  1.0
+#"ICE" , "sw_flux_dn"    , "SWDN_MOD"    ,"./INPUT/concat_rad_N.nc"     , "bicubic" ,  1.0
+"ICE" , "sw_flux_vis_dir_dn", "SWDN_MOD", "./INPUT/concat_rad_N.nc"     , "bicubic" , 0.285
+"ICE" , "sw_flux_vis_dif_dn", "SWDN_MOD", "./INPUT/concat_rad_N.nc"     , "bicubic" , 0.285
+"ICE" , "sw_flux_nir_dir_dn", "SWDN_MOD", "./INPUT/concat_rad_N.nc"     , "bicubic" , 0.215
+"ICE" , "sw_flux_nir_dif_dn", "SWDN_MOD", "./INPUT/concat_rad_N.nc"     , "bicubic" , 0.215
+"ICE" , "lprec"         , "RAIN"        , "./INPUT/concat_precip_N.nc"  , "bicubic" ,  1.0
+"ICE" , "fprec"         , "SNOW"        , "./INPUT/concat_precip_N.nc"  , "bicubic" ,  1.0
 "ICE" , "runoff"        , "RUNOFF"      , "./INPUT/runoff.nc"            , "none"  ,  1.0
 #"ICE" , "calving"       , "CALVING"     , "./INPUT/calving.nc"            , "bicubic"  ,  1.0
 "ICE" , "dhdt"          , ""            , ""                             , "none"  , 40.0

@@ -4,19 +4,25 @@ project: e14
 walltime: 5:00:00
 ncpus: 960
 mem: 1600GB
-jobname: NYFnew
+jobname: NYFnipo_heat
 
-collate_walltime: 3:00:00
-collate_mem: 8GB
+collate_walltime: 12:00:00
+collate_mem: 12GB
+collate_ncpus: 2
+collate_queue: express
+collate_flags: -n4 -z -m -r
+collate_exe: /short/v45/aph502/mom/bin/mppnccombine
 
 # Model config
 model: mom
-shortpath: /short/v45
-exe: mom51_sis_xgrid
+shortpath: /short/e14
 input:
-    - core2nyf2iaf_fut
+    - /short/e14/rmh561/MOM_HeatDiag/archive/restart006
+    - core2nyf2iaf_nipo_trends
     - gfdl_nyf_1080_clean
 collate: true
 
 # Misc
 stacksize: unlimited
+mpirun: --mca mtl mxm
+qsub_flags: -lother=hyperthread
