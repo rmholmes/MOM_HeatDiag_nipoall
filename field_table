@@ -19,7 +19,7 @@ horizontal-advection-scheme = mdppm
 vertical-advection-scheme = mdppm
 ppm_hlimiter = 3
 ppm_vlimiter = 3
-restart_file = ocean_age.res.nc
+restart_file = ocean_age_zero.res.nc
 min_tracer_limit=0.0
 /
 "namelists","ocean_mod","ocean_age_tracer/global"
