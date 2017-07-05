@@ -1,12 +1,12 @@
 # PBS flags
 queue: normal
 project: e14
-walltime: 5:00:00
-ncpus: 960
-mem: 1600GB
+walltime: 03:00:00
+ncpus: 1920
+mem: 3840GB
 jobname: NYFnipo_heat
 
-collate_walltime: 12:00:00
+collate_walltime: 06:00:00
 collate_mem: 12GB
 collate_ncpus: 2
 collate_queue: express

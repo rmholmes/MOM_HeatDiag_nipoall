@@ -73,8 +73,8 @@
        mom_rough_ice=5.0e-4
        wd_turn=0.0
        do_icebergs = .false.
-       layout = 32, 30
-       io_layout = 32, 30
+       layout = 64, 30
+       io_layout = 64, 30
 /
 
  &icebergs_nml
@@ -193,8 +193,8 @@
 
  &ocean_density_nml
         neutral_rho_equal_theta=.true.
-	potrho_min=-3.0
-	potrho_max=34.0
+	potrho_min=1028.0
+	potrho_max=1038.0
 	neutralrho_min=-3.0
 	neutralrho_max=34.0
 	layer_nk=74
@@ -267,8 +267,8 @@
 	surface_height_split = 1
 	barotropic_split = 80
 	debug=.false.
-	layout = 32, 30
-	io_layout = 32, 30
+	layout = 64, 30
+	io_layout = 64, 30
 /
 
  &ocean_momentum_source_nml
