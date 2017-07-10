@@ -41,7 +41,8 @@
 /
 
  &fms_io_nml
-	threading_read ='multi'
+        checksum_required=.true.
+        threading_read ='multi'
 	threading_write='multi'
 	fileset_write='multi'
 	max_files_r = 700

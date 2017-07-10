@@ -2,8 +2,8 @@
 queue: normal
 project: e14
 walltime: 03:00:00
-ncpus: 1920
-mem: 3840GB
+ncpus: 1477
+mem: 2900GB
 jobname: NYFnipo_heat
 
 collate_walltime: 06:00:00
@@ -17,10 +17,11 @@ collate_exe: /short/v45/aph502/mom/bin/mppnccombine
 model: mom
 shortpath: /short/e14
 input:
-#    - mom025/mask_1920
+    - mom025/mask_1920
     - core2nyf2iaf_nipo_trends
     - gfdl_nyf_1080_clean
 collate: true
+restart_freq: 1
 
 # Misc
 stacksize: unlimited
