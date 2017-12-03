@@ -1,13 +1,13 @@
 MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 1992 1 1 0 0 0
 #output files
-"ice_daily",       24,  "hours",  1, "days", "time",
+#"ice_daily",       24,  "hours",  1, "days", "time",
 "ice_month",        1,  "months", 1, "days", "time",
 "ocean",            1,  "months", 1, "days", "time",
 "ocean_heat",      1,  "months", 1, "days", "time",
 "ocean_snap",      1,  "months", 1, "days", "time",
 "ocean_wmass",     1,  "months", 1, "days", "time",
-"ocean_daily",     24,  "hours",  1, "days", "time",
+#"ocean_daily",     24,  "hours",  1, "days", "time",
 "ocean_grid",      -1,  "months", 1, "days", "time",
 "ocean_scalar",     1,  "months", 1, "days", "time",
 "ocean_model","geolon_t","geolon_t", "ocean_grid","all",.false.,"none",2
@@ -53,6 +53,7 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ocean_model","diff_cbt_t","diff_cbt_t",          "ocean","all",.true.,"none",2
 "ocean_model","pme_river","pme_river",            "ocean","all",.true.,"none",2
 "ocean_model","net_sfc_heating","net_sfc_heating"     ,"ocean","all",.true.,"none",2
+"ocean_model","swflx","swflx","ocean","all",.true.,"none",2
 
 # Monthly snapshots
 "ocean_model","geolon_t","geolon_t", "ocean_snap","all",.false.,"none",2
@@ -81,6 +82,11 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ocean_model","sw_heat_on_nrho","sw_heat_on_nrho", "ocean_wmass","all",.true.,"none",2
 "ocean_model","temp_rivermix_on_nrho","temp_rivermix_on_nrho","ocean_wmass","all",.true.,"none",2
 
+# Neutral diffusion:
+# "ocean_model","neutral_diffusion_on_nrho_temp","neutral_diffusion_on_nrho_temp", "ocean_wmass","all",.true.,"none",2
+# "ocean_model","neutral_gm_on_nrho_temp","neutral_gm_on_nrho_temp", "ocean_wmass","all",.true.,"none",2
+# "ocean_model","temp_vdiffuse_k33_on_nrho","temp_vdiffuse_k33_on_nrho", "ocean_wmass","all",.true.,"none",2
+
 # Temperature-binned transports
 "ocean_model","tx_trans_nrho","tx_trans_nrho",        "ocean_wmass","all",.true.,"none",2
 "ocean_model","ty_trans_nrho","ty_trans_nrho",        "ocean_wmass","all",.true.,"none",2
@@ -94,7 +100,23 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ocean_model","geolon_c","geolon_c", "ocean_heat","all",.false.,"none",2
 "ocean_model","geolat_c","geolat_c", "ocean_heat","all",.false.,"none",2
 
+# Tendency:
 "ocean_model","temp_tendency","temp_tendency", "ocean_heat","all",.true.,"none",2
+
+# All others (for checks, but don't run most of the time:
+# "ocean_model","temp_advection","temp_advection", "ocean_heat","all",.true.,"none",2
+# "ocean_model","temp_submeso","temp_submeso", "ocean_heat","all",.true.,"none",2
+# "ocean_model","temp_vdiffuse_diff_cbt","temp_vdiffuse_diff_cbt", "ocean_heat","all",.true.,"none",2
+# "ocean_model","temp_nonlocal_KPP","temp_nonlocal_KPP", "ocean_heat","all",.true.,"none",2
+# "ocean_model","sw_heat","sw_heat", "ocean_heat","all",.true.,"none",2
+# "ocean_model","temp_vdiffuse_sbc","temp_vdiffuse_sbc","ocean_heat","all",.true.,"none",2
+# "ocean_model","sfc_hflux_pme","sfc_hflux_pme","ocean_heat","all",.true.,"none",2
+# "ocean_model","frazil_2d","frazil_2d","ocean_heat","all",.true.,"none",2
+# "ocean_model","temp_eta_smooth","temp_eta_smooth","ocean_heat","all",.true.,"none",2
+# "ocean_model","temp_rivermix","temp_rivermix","ocean_heat","all",.true.,"none",2
+# "ocean_model","neutral_diffusion_temp","neutral_diffusion_temp", "ocean_heat","all",.true.,"none",2
+# "ocean_model","neutral_gm_temp","neutral_gm_temp", "ocean_heat","all",.true.,"none",2
+# "ocean_model","temp_vdiffuse_k33","temp_vdiffuse_k33", "ocean_heat","all",.true.,"none",2
 
 #==========================================================================
 # Extras that Nicola had:
