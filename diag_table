@@ -90,6 +90,10 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 # Temperature-binned transports
 "ocean_model","tx_trans_nrho","tx_trans_nrho",        "ocean_wmass","all",.true.,"none",2
 "ocean_model","ty_trans_nrho","ty_trans_nrho",        "ocean_wmass","all",.true.,"none",2
+# "ocean_model","tx_trans_nrho_gm","tx_trans_nrho_gm", "ocean_wmass","all",.true.,"none",2
+# "ocean_model","ty_trans_nrho_gm","ty_trans_nrho_gm", "ocean_wmass","all",.true.,"none",2
+"ocean_model","tx_trans_nrho_submeso","tx_trans_nrho_submeso", "ocean_wmass","all",.true.,"none",2
+"ocean_model","ty_trans_nrho_submeso","ty_trans_nrho_submeso", "ocean_wmass","all",.true.,"none",2
 
 # To close volume budget, also need P-E+R T-binned:
 "ocean_model","mass_pmepr_on_nrho","mass_pmepr_on_nrho","ocean_wmass","all",.true.,"none",2
