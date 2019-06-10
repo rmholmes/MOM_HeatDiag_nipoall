@@ -2,7 +2,7 @@
         months = 12,
         days   = 0,
         current_date = 1992,1,1,0,0,0,
-        force_date_from_namelist=.false.,
+        force_date_from_namelist=.true.,
         calendar = 'noleap',
         dt_cpld = 1800,
         dt_atmos = 1800,
@@ -41,7 +41,7 @@
 /
 
  &fms_io_nml
-        checksum_required=.true.
+        checksum_required=.false.
         threading_read ='multi'
 	threading_write='multi'
 	fileset_write='multi'
@@ -193,7 +193,9 @@
 /
 
  &ocean_density_nml
-        neutral_rho_equal_theta=.true.
+        neutral_density_theta = .true.
+        neutral_density_potrho = .false.
+        nrho_face_bin = .true.
 	potrho_min=1028.0
 	potrho_max=1038.0
 	neutralrho_min=-3.0
@@ -613,8 +615,12 @@
 
  &ocean_vert_kpp_mom4p1_nml
 	use_this_module=.true.
-	diff_cbt_iw=0.0
+	diff_cbt_iw=1.0e-5
 	visc_cbu_iw=0.0
+        eqred_iw = .true.
+        diff_cbt_iw_eq = 1.0e-6
+        eqred_maxlat = 15.0
+        eqred_minlat = 5.0
 	double_diffusion=.true.
 	Ricr=0.3
 	smooth_blmc=.true.

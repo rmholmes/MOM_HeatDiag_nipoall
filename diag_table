@@ -3,7 +3,7 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 #output files
 #"ice_daily",       24,  "hours",  1, "days", "time",
 "ice_month",        1,  "months", 1, "days", "time",
-"ocean",            1,  "months", 1, "days", "time",
+"ocean",           1,  "months", 1, "days", "time",
 "ocean_heat",      1,  "months", 1, "days", "time",
 "ocean_snap",      1,  "months", 1, "days", "time",
 "ocean_wmass",     1,  "months", 1, "days", "time",
@@ -31,29 +31,34 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ocean_model","geolat_t","geolat_t", "ocean","all",.false.,"none",2
 "ocean_model","geolon_c","geolon_c", "ocean","all",.false.,"none",2
 "ocean_model","geolat_c","geolat_c", "ocean","all",.false.,"none",2
+"ocean_model","temp","temp",            "ocean","all",.true.,"none",2
 "ocean_model","salt","salt",            "ocean","all",.true.,"none",2
-"ocean_model","age_global","age_global","ocean","all",.true.,"none",2
 "ocean_model","u","u",                  "ocean","all",.true.,"none",2
 "ocean_model","v","v",                  "ocean","all",.true.,"none",2
-"ocean_model","sea_level","sea_level",           "ocean","all",.true.,"none",2
 "ocean_model","wt","wt",                            "ocean","all",.true.,"none",2
+"ocean_model","diff_cbt_t","diff_cbt_t",          "ocean","all",.true.,"none",2
+
+"ocean_model","u_sq","u_sq",                  "ocean","all",.true.,"none",2
+"ocean_model","v_sq","v_sq",                  "ocean","all",.true.,"none",2
+# "ocean_model","wt_sq","wt_sq",                            "ocean","all",.true.,"none",2
+
+# "ocean_model","temp_dxsq","temp_dxsq",                  "ocean","all",.true.,"none",2
+# "ocean_model","temp_dysq","temp_dysq",                  "ocean","all",.true.,"none",2
+# "ocean_model","temp_dzsq","temp_dzsq",                  "ocean","all",.true.,"none",2
+
+"ocean_model","sea_level","sea_level",           "ocean","all",.true.,"none",2
 "ocean_model","mld","mld",                          "ocean","all",.true.,"none",2
 "ocean_model","tau_x","tau_x"                         ,"ocean","all",.true.,"none",2
 "ocean_model","tau_y","tau_y"                         ,"ocean","all",.true.,"none",2
-"ocean_model","tx_trans","tx_trans",        "ocean","all",.true.,"none",2
-"ocean_model","ty_trans","ty_trans",        "ocean","all",.true.,"none",2 
+"ocean_model","pme_river","pme_river",            "ocean","all",.true.,"none",2
+"ocean_model","net_sfc_heating","net_sfc_heating"     ,"ocean","all",.true.,"none",2
 
 #==========================================================================
 # Needed for Heat Budget Analysis
 #==========================================================================
 
-# Monthly averages of normal fields
-"ocean_model","temp","temp",            "ocean","all",.true.,"none",2
+# Monthly averages of layer thickness:
 "ocean_model","dzt","dzt",            "ocean","all",.true.,"none",2
-"ocean_model","diff_cbt_t","diff_cbt_t",          "ocean","all",.true.,"none",2
-"ocean_model","pme_river","pme_river",            "ocean","all",.true.,"none",2
-"ocean_model","net_sfc_heating","net_sfc_heating"     ,"ocean","all",.true.,"none",2
-"ocean_model","swflx","swflx","ocean","all",.true.,"none",2
 
 # Monthly snapshots
 "ocean_model","geolon_t","geolon_t", "ocean_snap","all",.false.,"none",2
@@ -63,6 +68,7 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 
 "ocean_model","temp","temp", "ocean_snap","all",.false.,"none",2
 "ocean_model","dzt","dzt",   "ocean_snap","all",.false.,"none",2
+"ocean_model","total_volume_seawater","total_volume_seawater" , "ocean_snap","all",.false.,"none",2
 
 # Temperature-binned heat budget diagnostics
 "ocean_model","geolon_t","geolon_t", "ocean_wmass","all",.false.,"none",2
@@ -82,54 +88,62 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ocean_model","sw_heat_on_nrho","sw_heat_on_nrho", "ocean_wmass","all",.true.,"none",2
 "ocean_model","temp_rivermix_on_nrho","temp_rivermix_on_nrho","ocean_wmass","all",.true.,"none",2
 
-# Neutral diffusion:
-# "ocean_model","neutral_diffusion_on_nrho_temp","neutral_diffusion_on_nrho_temp", "ocean_wmass","all",.true.,"none",2
-# "ocean_model","neutral_gm_on_nrho_temp","neutral_gm_on_nrho_temp", "ocean_wmass","all",.true.,"none",2
-# "ocean_model","temp_vdiffuse_k33_on_nrho","temp_vdiffuse_k33_on_nrho", "ocean_wmass","all",.true.,"none",2
+# Components of diffusion:
+"ocean_model","temp_vdiffuse_diff_cbt_kppiw_on_nrho","temp_vdiffuse_diff_cbt_kppiw_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_vdiffuse_diff_cbt_kppish_on_nrho","temp_vdiffuse_diff_cbt_kppish_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_vdiffuse_diff_cbt_kppicon_on_nrho","temp_vdiffuse_diff_cbt_kppicon_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_vdiffuse_diff_cbt_kppbl_on_nrho","temp_vdiffuse_diff_cbt_kppbl_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_vdiffuse_diff_cbt_kppdd_on_nrho","temp_vdiffuse_diff_cbt_kppdd_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_vdiffuse_diff_cbt_wave_on_nrho","temp_vdiffuse_diff_cbt_wave_on_nrho", "ocean_wmass","all",.true.,"none",2
+
+# # Neutral diffusion:
+# # "ocean_model","neutral_diffusion_on_nrho_temp","neutral_diffusion_on_nrho_temp", "ocean_wmass","all",.true.,"none",2
+# # "ocean_model","neutral_gm_on_nrho_temp","neutral_gm_on_nrho_temp", "ocean_wmass","all",.true.,"none",2
+# # "ocean_model","temp_vdiffuse_k33_on_nrho","temp_vdiffuse_k33_on_nrho", "ocean_wmass","all",.true.,"none",2
 
 # Temperature-binned transports
-"ocean_model","tx_trans_nrho","tx_trans_nrho",        "ocean_wmass","all",.true.,"none",2
-"ocean_model","ty_trans_nrho","ty_trans_nrho",        "ocean_wmass","all",.true.,"none",2
+"ocean_model","tx_trans_nrho","tx_trans_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","ty_trans_nrho","ty_trans_nrho", "ocean_wmass","all",.true.,"none",2
 # "ocean_model","tx_trans_nrho_gm","tx_trans_nrho_gm", "ocean_wmass","all",.true.,"none",2
 # "ocean_model","ty_trans_nrho_gm","ty_trans_nrho_gm", "ocean_wmass","all",.true.,"none",2
 "ocean_model","tx_trans_nrho_submeso","tx_trans_nrho_submeso", "ocean_wmass","all",.true.,"none",2
 "ocean_model","ty_trans_nrho_submeso","ty_trans_nrho_submeso", "ocean_wmass","all",.true.,"none",2
 
+# Temperature-binned heat transports (for numerical mixing):
+"ocean_model","temp_xflux_adv_on_nrho","temp_xflux_adv_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_yflux_adv_on_nrho","temp_yflux_adv_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_xflux_submeso_on_nrho","temp_xflux_submeso_on_nrho", "ocean_wmass","all",.true.,"none",2
+"ocean_model","temp_yflux_submeso_on_nrho","temp_yflux_submeso_on_nrho", "ocean_wmass","all",.true.,"none",2
+
 # To close volume budget, also need P-E+R T-binned:
 "ocean_model","mass_pmepr_on_nrho","mass_pmepr_on_nrho","ocean_wmass","all",.true.,"none",2
 
-# Eulerian heat budget diagnostics (for check)
-"ocean_model","geolon_t","geolon_t", "ocean_heat","all",.false.,"none",2
-"ocean_model","geolat_t","geolat_t", "ocean_heat","all",.false.,"none",2
-"ocean_model","geolon_c","geolon_c", "ocean_heat","all",.false.,"none",2
-"ocean_model","geolat_c","geolat_c", "ocean_heat","all",.false.,"none",2
+# # Eulerian heat budget diagnostics (for check)
+# "ocean_model","geolon_t","geolon_t", "ocean_heat","all",.false.,"none",2
+# "ocean_model","geolat_t","geolat_t", "ocean_heat","all",.false.,"none",2
+# "ocean_model","geolon_c","geolon_c", "ocean_heat","all",.false.,"none",2
+# "ocean_model","geolat_c","geolat_c", "ocean_heat","all",.false.,"none",2
 
-# Tendency:
-"ocean_model","temp_tendency","temp_tendency", "ocean_heat","all",.true.,"none",2
+# # Tendency:
+# "ocean_model","temp_tendency","temp_tendency", "ocean_heat","all",.true.,"none",2
 
-# All others (for checks, but don't run most of the time:
-# "ocean_model","temp_advection","temp_advection", "ocean_heat","all",.true.,"none",2
-# "ocean_model","temp_submeso","temp_submeso", "ocean_heat","all",.true.,"none",2
-# "ocean_model","temp_vdiffuse_diff_cbt","temp_vdiffuse_diff_cbt", "ocean_heat","all",.true.,"none",2
-# "ocean_model","temp_nonlocal_KPP","temp_nonlocal_KPP", "ocean_heat","all",.true.,"none",2
-# "ocean_model","sw_heat","sw_heat", "ocean_heat","all",.true.,"none",2
-# "ocean_model","temp_vdiffuse_sbc","temp_vdiffuse_sbc","ocean_heat","all",.true.,"none",2
-# "ocean_model","sfc_hflux_pme","sfc_hflux_pme","ocean_heat","all",.true.,"none",2
-# "ocean_model","frazil_2d","frazil_2d","ocean_heat","all",.true.,"none",2
-# "ocean_model","temp_eta_smooth","temp_eta_smooth","ocean_heat","all",.true.,"none",2
-# "ocean_model","temp_rivermix","temp_rivermix","ocean_heat","all",.true.,"none",2
-# "ocean_model","neutral_diffusion_temp","neutral_diffusion_temp", "ocean_heat","all",.true.,"none",2
-# "ocean_model","neutral_gm_temp","neutral_gm_temp", "ocean_heat","all",.true.,"none",2
-# "ocean_model","temp_vdiffuse_k33","temp_vdiffuse_k33", "ocean_heat","all",.true.,"none",2
-
-#==========================================================================
-# Extras that Nicola had:
-#==========================================================================
- "ocean_model","sea_level_sq","sea_levelsq",      "ocean","all",.true.,"none",2
- "ocean_model","pot_rho_0","pot_rho_0",              "ocean","all",.true.,"none",2
- "ocean_model","sfc_hflux_coupler","sfc_hflux_coupler" ,"ocean","all",.true.,"none",2
- "ocean_model","sfc_salt_flux_restore","sfc_salt_flux_restore" ,"ocean","all",.true.,"none",2  
- "ocean_model","ty_trans_rho","ty_trans_rho",         "ocean","all",.true.,"none",2
+# # All others (for checks, but don't run most of the time:
+# # "ocean_model","temp_vdiffuse_diff_cbt","temp_vdiffuse_diff_cbt", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_vdiffuse_diff_cbt_kppiw","temp_vdiffuse_diff_cbt_kppiw", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_vdiffuse_diff_cbt_kppish","temp_vdiffuse_diff_cbt_kppish", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_vdiffuse_diff_cbt_kppbl","temp_vdiffuse_diff_cbt_kppbl", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_nonlocal_KPP","temp_nonlocal_KPP", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","sw_heat","sw_heat", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_vdiffuse_sbc","temp_vdiffuse_sbc","ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_advection","temp_advection", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_submeso","temp_submeso", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","sfc_hflux_pme","sfc_hflux_pme","ocean_heat","all",.true.,"none",2
+# # "ocean_model","frazil_2d","frazil_2d","ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_eta_smooth","temp_eta_smooth","ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_rivermix","temp_rivermix","ocean_heat","all",.true.,"none",2
+# # "ocean_model","neutral_diffusion_temp","neutral_diffusion_temp", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","neutral_gm_temp","neutral_gm_temp", "ocean_heat","all",.true.,"none",2
+# # "ocean_model","temp_vdiffuse_k33","temp_vdiffuse_k33", "ocean_heat","all",.true.,"none",2
 
 #==========================================================================
 # Globally-averaged 
@@ -139,7 +153,8 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ocean_model","salt_global_ave","salt_global_ave"             , "ocean_scalar","all",.true.,"none",2
 "ocean_model","rhoave","rhoave"                               , "ocean_scalar","all",.true.,"none",2
 "ocean_model","total_volume_seawater","total_volume_seawater" , "ocean_scalar","all",.true.,"none",2
-"ocean_model","total_net_sfc_heating","total_net_sfc_heating","ocean_scalar","all",.true.,"none",2
+"ocean_model","total_net_sfc_heating","total_net_sfc_heating" , "ocean_scalar","all",.true.,"none",2
+"ocean_model","total_ocean_pme_river","total_ocean_pme_river" , "ocean_scalar","all",.true.,"none",2
 
 "ocean_model","total_ocean_hflux_coupler","total_ocean_hflux_coupler"        ,"ocean_scalar","all",.true.,"none",2
 "ocean_model","total_ocean_swflx","total_ocean_swflx"                        ,"ocean_scalar","all",.true.,"none",2
@@ -149,7 +164,7 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ocean_model","total_ocean_fprec_melt_heat","total_ocean_fprec_melt_heat"    ,"ocean_scalar","all",.true.,"none",2
 "ocean_model","total_ocean_calving_melt_heat","total_ocean_calving_melt_heat","ocean_scalar","all",.true.,"none",2
 "ocean_model","total_ocean_sens_heat","total_ocean_sens_heat"                ,"ocean_scalar","all",.true.,"none",2
-#
+
 #
 #==========================================================================
 # ICE DIAGNOSTICS:
@@ -164,7 +179,6 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 # "ice_model", "SSH",        "SSH",        "ice_daily", "all", .true., "none", 2
 # "ice_model", "SSS",        "SSS",        "ice_daily", "all", .true., "none", 2
 # "ice_model", "SST",        "SST",        "ice_daily", "all", .true., "none", 2
-#
 # Monthly data --------------------------------
 #
 "ice_model", "CELL_AREA",  "CELL_AREA",  "ice_month", "all", .false., "none", 2
@@ -183,3 +197,4 @@ MOM4p1_CORE_IAF_v20120531_0849_noRestore_runoff_fix
 "ice_model", "EXT",        "EXT",        "ice_month", "all", .true., "none", 2
 "ice_model", "EXT",        "EXT_min",    "ice_month", "all",  min,   "none", 2
 "ice_model", "EXT",        "EXT_max",    "ice_month", "all",  max,   "none", 2
+

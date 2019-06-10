@@ -1,27 +1,35 @@
 # PBS flags
 queue: normal
 project: e14
-walltime: 03:00:00
+walltime: 05:00:00
 ncpus: 1477
 mem: 2900GB
 jobname: NYFnipo_heat
 
-collate_walltime: 06:00:00
-collate_mem: 12GB
-collate_ncpus: 2
-collate_queue: express
-collate_flags: -n4 -z -m -r
-collate_exe: /short/v45/aph502/mom/bin/mppnccombine
-
 # Model config
 model: mom
 shortpath: /short/e14
+exe: fms_MOM_SIS_tvvar.x
 input:
+    - /short/e14/rmh561/mom/archive/MOM_HeatDiag_kb3seg/restart100/
     - mom025/mask_1920
     - core2nyf2iaf_nipo_trends
     - gfdl_nyf_1080_clean
-collate: true
 restart_freq: 1
+
+# Collate:
+collate:
+     glob: False
+     enable: true
+     queue: express
+     memory: 4GB
+     walltime: 02:00:00
+     mpi: true
+     ncpus: 4
+     threads: 2
+     flags: -r -v
+     exe: /short/public/aph502/mppnccombine-fast
+     restart: true
 
 # Misc
 stacksize: unlimited
