@@ -2,7 +2,7 @@
         months = 12,
         days   = 0,
         current_date = 1992,1,1,0,0,0,
-        force_date_from_namelist=.true.,
+        force_date_from_namelist=.false.,
         calendar = 'noleap',
         dt_cpld = 1800,
         dt_atmos = 1800,

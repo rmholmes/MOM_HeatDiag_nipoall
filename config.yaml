@@ -11,7 +11,6 @@ model: mom
 shortpath: /short/e14
 exe: fms_MOM_SIS_tvvar.x
 input:
-    - /short/e14/rmh561/mom/archive/MOM_HeatDiag_kb3seg/restart100/
     - mom025/mask_1920
     - core2nyf2iaf_nipo_trends
     - gfdl_nyf_1080_clean
@@ -23,7 +22,7 @@ collate:
      enable: true
      queue: express
      memory: 4GB
-     walltime: 02:00:00
+     walltime: 05:00:00
      mpi: true
      ncpus: 4
      threads: 2
