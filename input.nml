@@ -17,6 +17,11 @@
         check_stocks=0
 /
 
+ &mpp_io_nml
+        deflate_level = 5
+        shuffle = 1
+/
+
  &data_override_nml
 
 /
