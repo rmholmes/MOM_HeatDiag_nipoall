@@ -33,4 +33,4 @@ collate:
 # Misc
 stacksize: unlimited
 mpirun: --mca mtl mxm
-qsub_flags: -lother=hyperthread
+qsub_flags: -lother=hyperthread -W umask=027
